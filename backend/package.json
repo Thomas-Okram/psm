@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon backend"
+    "dev": "cross-env NODE_ENV=development nodemon backend/index.js",
+    "start": "cross-env NODE_ENV=production node backend/index.js",
+    "build": "npm install --legacy-peer-deps && npm install --prefix frontend --legacy-peer-deps && npm run build --prefix frontend",
+    "frontend-dev": "cross-env NODE_ENV=development npm run start --prefix frontend",
+    "frontend-build": "npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
