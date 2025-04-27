@@ -1,0 +1,258 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+  color: rgba(255, 255, 255, 0.886);
+  background: linear-gradient(to right, #1c3363, #432063);
+}
+@layer base {
+  input[type="number"] {
+    @apply appearance-none;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    @apply appearance-none;
+  }
+}
+
+/* start of header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.175);
+  backdrop-filter: blur(50px);
+  /* background: linear-gradient(to right, #C3D442, rgb(2, 99, 2)); */
+}
+
+.logo,
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px
+}
+.logo img {
+  height: 40px;
+  border-radius: 8px;
+}
+.logo p {
+  margin: -5px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.928);
+}
+nav a,
+.sideBar a {
+  display: grid;
+  place-items: center;
+  color: white;
+  text-decoration: none;
+  /* font-size: 0.8rem; */
+}
+
+.sideBarIcon {
+  display: none;
+  align-items: center;
+  gap: 20px;
+}
+.sideBarIcon a {
+  color: rgba(255, 255, 255, 0.886)
+}
+.sideBar {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  right: 20px;
+  gap: 10px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.514);
+  border: 1px solid rgba(255, 255, 255, 0.104);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
+  height: 0;
+  width: 0;
+  padding: 0;
+  top: 24px;
+}
+.sideBar.openSideBar {
+  height: 224px;
+  width: 160px;
+  padding: 20px 10px;
+  top: 50px;
+}
+
+.sideBar i {
+  font-size: 1rem;
+}
+
+@media (max-width: 660px) {
+  nav {
+      display: none;
+  }
+  .sideBarIcon {
+      display: flex;
+  } 
+  .sideBar {
+      display: flex;
+  }
+}
+/* end of header */
+
+/* start of home */
+.hero {
+  width: 100%;
+  max-height: 400px;
+  min-height: 160px;
+  object-fit:  cover;
+  object-position: left top;
+  
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.productsWrapper {
+  width: calc(100% - 30px);
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+@media (max-width: 400px) {
+  .productsWrapper {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+.productsWrapper > a > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  max-width: 200px;
+  aspect-ratio: 5/6;
+  position: relative;
+  border-radius: 20px;
+  padding-bottom: 13px;
+  box-shadow: 0 0 4px 2px #432063;
+  color: black;
+}
+.productsWrapper > a > div > h4,
+.productsWrapper > a > div > p {
+  margin: -3px 5px;
+  font-size: 0.8rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.hanger {
+  position: absolute;
+  left: calc(50% - 30px);
+  top: 15px;
+  /* background-color: white; */
+  background: #432063;
+  height: 12px;
+  width: 60px;
+  border-radius: 6px;
+  /* border: 1px solid rgb(228, 227, 227); */
+}
+.hanger > div {
+  position: absolute;
+  background: #432063;
+  left: calc(50% - 10px);
+  top: -6px;
+  height: 8px;
+  width: 20px;
+  /* background-color: white; */
+  border-radius: 10px 10px 0 0;
+  /* border: 1px solid rgb(228, 227, 227); */
+  border-bottom: none;
+}
+.productsWrapper > a > div > p > img {
+  /* position: absolute; 
+  top: 10px;
+  right: 10px; */
+  height: 16px;
+  width: 16px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.help {
+  text-align: center;
+  /* background: linear-gradient(to right, #C3D442, rgb(2, 99, 2)); */
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1px 0;
+  margin-top: 50px;
+  padding-bottom: 30px;
+}
+.help p {
+  margin: 6px 0;
+  color: rgba(255, 255, 255, 0.837);
+  font-size: 0.81rem;
+}
+
+.why {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 300px;
+}
+.why > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 10px;
+  width: 100%;
+}
+.why > div > div {
+  display: grid;
+  place-items: center;
+}
+.why i {
+  font-size: 1.8rem;
+  color: rgb(233, 193, 15);
+}
+.why p {
+  margin: 5px 0;
+  font-size: 0.7rem;
+}
+
+
+footer {
+  background: rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+  padding: 1px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer > p {
+  font-size: 0.7rem;
+  margin: 2px;
+}
+footer a {
+  color: rgb(233, 193, 15);
+  font-size: 1.2rem;
+}
+footer > div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 160px;
+}
+footer > section {
+  margin: 20px 0 40px 0;
+}
+/* end of home */
+
+
+@import "tailwindcss";
